@@ -100,7 +100,7 @@ apply(z, 2, max) # 4 9 18
 # - 동일한 자료형을 갖는 3차원 배열구조
 arr <- array(1:12, c(3,2,2))
 arr
-dim(arr) <- 3(row) 2(col) 2(side)
+dim(arr) # <- 3(row) 2(col) 2(side)
 
 arr[,,1] # 1면
 arr[,,2] # 2면
@@ -138,7 +138,7 @@ var(score) # 13
 sd(score)
 sqrt(var(score))
 
-# 분산 = sum((x - 산술편균)^2) / n-1 -> (표본분산)
+# 분산 = sum((x - 산술평균)^2) / n-1 -> (표본분산)
 avg <- mean(score)
 diff <- (score - avg)^2
 diff_sum <- sum(diff)
@@ -146,7 +146,7 @@ var <- diff_sum / (length(score) - 1)
 var # 13
 
 sd <- sqrt(var)
-
+sd
 
 # array, matrix, vector : 같은 자료형의 묶음
 # data.frame: 칼럼마다 다른 자료형을 가질 수 있음
@@ -186,7 +186,7 @@ names[[1]][2] # [[1]] : key, [2] : vector index
 member = list(name = c("홍길순", "이순신"),
               age = c(35, 45),
               gender = c("여", "남"))
-member
+class(member) # list
 # $name                 -> key (사용자 지정key)
 # [1] "홍길순" "이순신" -> value
 
