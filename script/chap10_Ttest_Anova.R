@@ -1,7 +1,9 @@
 # chap10_Ttest_Anova
 
-
+#############################
 # 1-1. 단일집단 비율차이 검정
+#############################
+
 # - 비모수 검정
 
 # 1) data 가져오기
@@ -48,8 +50,9 @@ binom.test(14, 150, p=0.2, alternative = "less")
 # [해설] 불만율이 14년도가 더 많다. 15년도 cs교육이 어느정도 효과가 있었다.
 
 
-
+#############################
 # 1-2. 단일집단 평균차이 검정
+#############################
 data <- read.csv("one_sample.csv")
 head(data)
 
@@ -81,7 +84,9 @@ t.test(x, mu=5.2, alternative = "less")
 # p-value = 0.9999 >= 0.05
 
 
+#############################
 # 2-1. 두 집단 비율 차이 검정
+#############################
 # 1) 실습데이터 가져오기
 data <- read.csv("two_sample.csv", header=TRUE)
 head(data)
@@ -123,7 +128,9 @@ prop.test(c(110,135), c(150,150), alternative = "less")
 # p-value = 0.0001711 < 0.05 (HA채택)
 
 
+#############################
 # 2-2. 두 집단 평균차이 검정
+#############################
 data <- read.csv("two_sample.csv", header=TRUE)
 data
 print(data)
@@ -162,8 +169,9 @@ t.test(a1, b1, alternative = "less")
 # p-value = 0.02055 < 0.05 (HA 채택)
 
 
-
+#############################
 # 3. 분산분석
+#############################
 # 두 집단 이상 평균차이검정(집단 분산 차이 검정)
 # 일원배치분산분석 : 독립변수(x), 종속변수(y)
 # cf) 이원배치분산분석 : y ~ x1 + x2
@@ -196,7 +204,7 @@ y <- iris$Sepal.Width # 연속형
 bartlett.test(y ~ x) # , data=iris는 생략
 # bartlett.test(Sepal.Width ~ Species, data=iris)
 # p-value = 0.3515 >= 0.05 -> H0 기각X, 모양에 차이가 없다.
-# (분포모양이 동직적) aov( ) 사용
+# (분포모양이 동질적) aov( ) 사용
 
 # 4. 분산분석 : aov(y ~ x, data)
 model <- aov(Sepal.Width ~ Species, data=iris)
@@ -260,7 +268,7 @@ bartlett.test(Sepal.Length ~ Species, data=iris)
 
 
 # 3. 분산분석(비모수 검정) : 평균 -> 중위수를 대푯값으로
-kruskal.test(Sepal.Length ~ Species, data = iris)
+model_k <- kruskal.test(Sepal.Length ~ Species, data = iris)
 # Kruskal-Wallis chi-squared = 96.937, df = 2, p-value < 2.2e-16
 
 # 4.사후검정 : 집단별 중위수 비교
@@ -309,6 +317,7 @@ bartlett.test(y ~ x)
 
 # 3. 분산분석(모수 검정)
 result <-aov(y ~ x)
+result
 summary(result)
 # Pr(>F) = 5.78e-14 *** (분산의 차이가 엄청 크다.)
 # [해설] 매우 유의미한 수준에서 집단간 차이를 보인다.

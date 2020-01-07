@@ -62,7 +62,7 @@ cor(iris[-5])
 #  -> Sepal.Length와 Petal.Length간에 가장 강한 상관관계를 보임
 
 # 산점도 표현 / 양의 상관계수 0.9628654
-plot(iris$Petal.Length, iris$ Petal.Width)
+plot(iris$Petal.Length, iris$Petal.Width)
 
 # 음의 상관계수 -0.4284401
 plot(iris$Sepal.Width, iris$Petal.Length)

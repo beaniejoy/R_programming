@@ -127,6 +127,7 @@ str(Galton) # 'data.frame':	928 obs. of  2 variables:
 
 model <- lm(child ~ parent, data = Galton) #lm(y ~ x)
 model # Coefficients
+summary(model)
 
 # 회귀모델 관련 시각화
 plot(model) # Residuals 잔차: 예측치와 실측치의 차이
@@ -179,7 +180,7 @@ d3$points3d(iris_versicolor$Petal.Length, iris_versicolor$Sepal.Length,
             iris_versicolor$Sepal.Width, bg='blue', pch=23)
 
 d3$points3d(iris_virginica$Petal.Length, iris_virginica$Sepal.Length,
-            iris_virginica$Sepal.Width, bg='green', pch=25)
+            iris_virginica$Sepal.Width, bg='green', pch=21)
 
 
 
